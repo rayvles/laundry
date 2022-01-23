@@ -1,6 +1,10 @@
 <?php
 
-use App\Http\Controllers\AdminPageController;
+
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\OutletController;
+use App\Http\Controllers\PaketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,5 +23,20 @@ Route::get('/', function () {
 });
 
 Route::prefix('/admin')->group(function(){
-    Route::get('/', [AdminPageController::class, 'index']);
+    Route::redirect('/', '/admin/house');
+    Route::get('/house', [AdminController::class, 'index'])->name('admin.house');
+    Route::resource('/outlet', OutletController::class)->except(['show']);
+    Route::get('/users/data', [UserController::class, 'data'])->name('users.data');
+    Route::apiResource('/users', UserController::class);
 });
+
+Route::prefix('/outlet/{outlet}')->group(function () {
+    Route::get('/', [OutletController::class, 'home'])->name('outlet.home');
+    Route::get('/paket/data', [PaketController::class, 'data'])->name('paket.data');
+    Route::apiResource('/paket', PaketController::class);
+    Route::get('/member/data', [MemberController::class, 'data'])->name('member.data');
+    Route::apiResource('/member', MemberController::class);
+});
+
+
+

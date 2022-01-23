@@ -30,14 +30,12 @@
         </div>
       </div>
 
-      <!-- Sidebar Menu -->
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
             data-accordion="false">
-            <li class="nav-header">ADMIN</li>
             <li class="nav-item">
-                <a href="/admin/home" class="nav-link">
+                <a href="/outlet/{{ $outlet->id }}" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
                         Dashboard
@@ -45,34 +43,27 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/admin/outlet" class="nav-link">
-                    <i class="nav-icon fas fa-store"></i>
+                <a href="/outlet/{{ $outlet->id }}/paket" class="nav-link">
+                    <i class="nav-icon fas fa-shopping-basket"></i>
                     <p>
-                        Manage Outlet
+                        Laundry Package
                     </p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/paket" class="nav-link">
+                <a href="/outlet/{{ $outlet->id }}/member" class="nav-link">
                     <i class="nav-icon fas fa-users"></i>
                     <p>
                         Member
                     </p>
                 </a>
             </li>
+            <li class="nav-header">Laundry</li>
             <li class="nav-item">
-                <a href="../widgets.html" class="nav-link">
-                    <i class="nav-icon fas fa-users"></i>
-                    <p>
-                        Employee
-                    </p>
-                </a>
-            </li>
-            {{-- <li class="nav-item">
                 <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <i class="nav-icon fas fa-tshirt"></i>
                     <p>
-                        Dashboard
+                        Data Laundry
                         <i class="right fas fa-angle-left"></i>
                     </p>
                 </a>
@@ -80,23 +71,49 @@
                     <li class="nav-item">
                         <a href="{{ asset('adminlte') }}/index.html" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Dashboard v1</p>
+                            <p>Processed</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ asset('adminlte') }}/index2.html" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Dashboard v2</p>
+                            <p>Finish</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ asset('adminlte') }}/index3.html" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Dashboard v3</p>
+                            <p>Cancel</p>
                         </a>
                     </li>
                 </ul>
-            </li> --}}
+            </li>
+            <li class="nav-header">TRANSACTION</li>
+            <li class="nav-item">
+                <a href="../widgets.html" class="nav-link">
+                    <i class="nav-icon fas fa-cash-register"></i>
+                    <p>
+                        New Transaction
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="../widgets.html" class="nav-link">
+                    <i class="nav-icon fas fa-file"></i>
+                    <p>
+                        Report
+                    </p>
+                </a>
+            </li>
+            <li class="nav-header">ADMIN</li>
+            <li class="nav-item">
+                <a href="/admin" class="nav-link">
+                    <i class="nav-icon fas fa-arrow-left"></i>
+                    <p>
+                        Admin Page
+                    </p>
+                </a>
+            </li>
         </ul>
     </nav>
       <!-- /.sidebar-menu -->

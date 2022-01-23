@@ -25,7 +25,7 @@
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        @include('admin.layouts.sidebar')
+        @include('admin.layouts.outlet_sidebar')
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -63,7 +63,7 @@
             <div class="float-right d-none d-sm-block">
                 Build with ✨ by <a href="https://github.com/rayvles?tab=repositories" target="_blank">Rajah Rayvles Pangkey</a>
             </div>
-            <strong>Copyright &copy; Rajah Rayvles Pangkey <a href="https://github.com/rayvles?tab=repositories">AdminLTE.io</a>.</strong> All rights
+            <strong>Copyright &copy; Rajah Rayvles Pangkey <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
             reserved.
         </footer>
 
@@ -81,9 +81,27 @@
     <script src="{{ asset('adminlte') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('adminlte') }}/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="{{ asset('adminlte') }}/dist/js/demo.js"></script>
+    <!-- Additional Scripts -->
+    <script>
+
+        const validationErrorHandler = function(errors) {
+            clearErrors();
+            for (const key in errors) {
+                let container = $(`[name=${key}]`).parent();
+                if (!container.find('span.form-errors').length > 0) {
+                    container.append(`<span class="form-errors text-danger"></span>`);
+                }
+                container.find('span.form-errors').text(errors[key][0]);
+            }
+        }
+
+        const clearErrors = function() {
+            $('span.form-errors').text('');
+        }
+    </script>
     @stack('script')
+
+    
 </body>
 
 </html>
